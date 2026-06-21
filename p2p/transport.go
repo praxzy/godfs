@@ -10,9 +10,10 @@ type Peer interface {
 }
 
 // Could be any transport protocol(TCP, UDP, websockets)
-type Transport interface { 
+type Transport interface {
 	Addr() string
 	Dial(string) error
 	ListenAndAccept() error
+	Consume() <-chan RPC
 	Close() error
 }
